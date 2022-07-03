@@ -10,6 +10,8 @@
  import {
    StyleSheet,
    ScrollView,
+   View,
+   Text,
  } from 'react-native';
  import axios from 'axios';
  import Item from './item';
@@ -40,9 +42,14 @@
 
      render(){
         return (
-            <ScrollView style={styles.fundoTela}>
-                {this.state.listaItens.map(item => (<Item key={item.titulo} objeto={item}></Item>))}
-            </ScrollView>
+            <>
+                <View style={styles.topo}>
+                    <Text style={styles.textoTopo}>Catálogo de Produtos</Text>
+                </View>
+                <ScrollView style={styles.fundoTela}>
+                    {this.state.listaItens.map(item => (<Item key={item.titulo} objeto={item}></Item>))}
+                </ScrollView>
+            </>
         );
      }
  }
@@ -50,6 +57,16 @@
  const styles = StyleSheet.create({
      fundoTela: {
          backgroundColor: '#ddd',
+     },
+     topo: {
+        height: 110,
+        paddingTop: 50,
+        paddingLeft: 10,
+        backgroundColor: 'grey',
+     },
+     textoTopo: {
+         fontSize: 35,
+         fontWeight: 'bold',
      },
  });
  
